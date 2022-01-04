@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="scripts/angular.min.js"></script>
+</head>
+<body>
+       
+
+    <input type="text" ng-model="name">
+    <div>HELLO {{name}}</div>
+    <textarea ng-model="description">hhhh</textarea>
+    <div>{{description}}</div>
+    
+    30+20 ={{30+20}}<br>
+  
+         
+    
+    Amount : <input type="text" ng-model="price"/>
+   <div>
+       PRICE : {{price | currency}}
+   </div>
+   <br>
+    
+   Amount : <input type="text" ng-model="name"/>
+   <div>
+       WELCOME : {{ name | uppercase}}
+   </div>
+
+
+ <h1 class="container"></h1> 
+      
+
+
+ <div ng-init="favLang=[{name:'PHP',duration:'5months'},
+                        {name:'java',duration:'8months'}]">
+
+
+ <p ng-repeat='language in favLang'>
+    Name: {{ language.name}}
+    <br>
+    Duration: {{language.duration}}
+ </p>
+</div>
+<br>
+<div ng-controller='languages'>
+Select your favorite language:
+<button ng-click="php()">PHP</button>
+<button ng-click="c()">C</button>
+<p>You have selected: {{mylanguage}}</p>
+
+
+
+</div>
+
+<script>
+    var application=angular.module('myapp',[])
+    application.controller('languages',function($scope){
+        $scope.mylanguage = "None";
+        $scope.php=function(){
+            $scope.mylanguage = "PHP";
+        }
+        $scope.c=function(){
+            $scope.mylanguage = "C";
+        }
+
+    })
+
+</script>
+</body>
+</html>
